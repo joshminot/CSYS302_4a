@@ -1,8 +1,11 @@
 grid_size = 40;
 num_boids = 100;
+num_its = 100;
+
 
 options = struct('grid_size', grid_size,...
-                'num_boids', num_boids);
+                'num_boids', num_boids,...
+                'num_its', num_its);
 main(options)
 
 % %simple quiverplot example
