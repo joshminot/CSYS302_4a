@@ -1,6 +1,9 @@
-grid_size = 40;
-num_boids = 100;
-num_its = 100;
+clear all
+close all
+
+grid_size = 400;
+num_boids = 200;
+num_its = 5000;
 
 
 options = struct('grid_size', grid_size,...
