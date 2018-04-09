@@ -1,27 +1,61 @@
 clear all
 close all
 
+%%
+% Gernalized swarming behavior 
+
 grid_size = 400;
 num_boids = 200;
-num_its = 5000;
-
+num_its = 500;
+fov_angle = pi/4; 
+test_bool = 0;
+% -1 indicated presence of predator, because predation is bad, m'kay? 
+predator = 1;
 
 options = struct('grid_size', grid_size,...
                 'num_boids', num_boids,...
-                'num_its', num_its);
+                'num_its', num_its,...
+                'fov_angle', fov_angle,...
+                 'test_bool', test_bool,...
+                'predator', predator);
 main(options)
 
-% %simple quiverplot example
-% x = [1 12];
-% y = [1 2];
-% u = [3 4];
-% v = [4 6];
-% quiver(x,y,u,v)
-% 
-%creates grid points in the xy-plane
-% [x y] = meshgrid(0:1:20, -1:1:12);
-% 
-% slope = y
-% 
-% quiver(x,y, ones(size(x)), slope)
+
+%%
+% Predator behavior 
+grid_size = 400;
+num_boids = 200;
+num_its = 500;
+fov_angle = pi/4; 
+test_bool = 0;
+% -1 indicated presence of predator, because predation is bad, m'kay? 
+predator = -1;
+
+options = struct('grid_size', grid_size,...
+                'num_boids', num_boids,...
+                'num_its', num_its,...
+                'fov_angle', fov_angle,...
+                 'test_bool', test_bool,...
+                'predator', predator);
+main(options)
+
+
+%%
+% Field of view demonstration
+
+grid_size = 400;
+num_boids = 200;
+num_its = 500;
+fov_angle = pi/4; 
+test_bool = 1;
+% -1 indicated presence of predator, because predation is bad, m'kay? 
+predator = -1;
+
+options = struct('grid_size', grid_size,...
+                'num_boids', num_boids,...
+                'num_its', num_its,...
+                'fov_angle', fov_angle,...
+                 'test_bool', test_bool,...
+                'predator', predator);
+main(options)
 
