@@ -22,7 +22,7 @@ all_boids(1).vel = [1 0];
 
 %initialize the other boids outside of the center
 for i=2: num_boids
-    %rand_range is a funtion that returns a number within specified range
+    %rand_range is just a funtion that return
     u= rand_range(-1,1);
     v= rand_range(-1,1);
     
