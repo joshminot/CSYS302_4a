@@ -10,18 +10,15 @@ function[all_boids] = initialize_positions(grid_size, num_boids)
 %   all_boids: structure with each boid as key and values are position and
 %               velocity
 %
-%Authors: Andy Metcalf and Josh Minot
-%
-%Initialize the structure
+%Authors:
 boid_struct = struct('pos', [1.0,1.0], 'vel', [0.1 0.1]);
 all_boids(1:num_boids) = boid_struct;
 
-%Initialize boids so that they start off the screen
 for i=1: num_boids
-    u= rand_range(-1,1);  %velocies between -1 and 1
+    u= rand_range(-1,1);
     v= rand_range(-1,1);
     
-    coin1 = rand();   %coin flip to alternate top-bottom / left-right
+    coin1 = rand();
     coin2 = rand();
     
     bool1 = coin1<0.5;
@@ -37,7 +34,6 @@ for i=1: num_boids
         y = -y;
     end
     
-    %assign
     all_boids(i).pos = [x y];
     all_boids(i).vel = [u v];
 end
