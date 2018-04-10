@@ -93,8 +93,9 @@ position = [all_boids(:).pos];
 x_vec = position(1:2:length(position)-1);
 y_vec = position(2:2:length(position));
 
-
-[fighandle, plothandle] = plotMapInNewFigure(x_vec, y_vec, predator); % PLOT INITIAL MAP (see function below)
+rep = 0;
+[fighandle, plothandle] = plotMapInNewFigure(x_vec, y_vec, predator,rep); % PLOT INITIAL MAP (see function below)
+saveas(gcf,'predFig0.png')
 
 
 %loop to update simulation
@@ -102,6 +103,11 @@ for rep=1:options.num_its
     %update
     set(plothandle, 'XData', x_vec, 'YData', y_vec);
     drawnow;
+    filename = ['predFig', num2str(rep),'.png'];
+    if mod(rep,10) ==0
+        title(gca,{'Boid Simulation',['iteration = ',num2str(rep)]});
+        saveas(gcf,filename);
+    end
     %the rules are all located in move_all_boids_to_new_positions()
     [x_vec, y_vec, u_vec, v_vec] = move_all_boids_to_new_positions(x_vec, y_vec, u_vec, v_vec, num_boids, fov_angle, predator); 
     
@@ -111,7 +117,7 @@ end
 
 
 %%% HELPER FUNCTION TO PLOT SIMULATION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function[fighandle, plothandle] =  plotMapInNewFigure(x_vec, y_vec, predator)
+function[fighandle, plothandle] =  plotMapInNewFigure(x_vec, y_vec, predator,rep)
 %INPUT
 %   x_vec: x component of position vector
 %   y_vec: y component of position vector
@@ -130,7 +136,7 @@ plothandle = scatter(x_vec, y_vec);
 %setting plot limits
 set(gca,'XLim', [-10000 10000],'YLim',[-10000 10000]);
 drawnow;
-title('Boid Simulation')
+title({'Boid Simulation',['iteration = ',num2str(rep)]})
 axis('square') %make sure aspect ratio is equal
 set(gca, 'fontsize', 16);
 end

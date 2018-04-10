@@ -17,7 +17,7 @@ grid_size = 400;
 % number of boids in simulation
 num_boids = 200;
 % number of iterations
-num_its = 500;
+num_its = 100;
 % field of view angle; this is the angle that the boid cannot see behind it
 fov_angle = pi/4; 
 test_bool = 0;
@@ -38,7 +38,7 @@ main(options)
 % THIS SIMULATES A PREDATOR.  WATCH OUT FOR BIG BIRD!!! 
 grid_size = 400;
 num_boids = 200;
-num_its = 500;
+num_its = 100;
 fov_angle = pi/4; 
 test_bool = 0;
 % -1 indicated presence of predator, because predation is bad, m'kay? 
