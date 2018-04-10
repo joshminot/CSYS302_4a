@@ -23,6 +23,8 @@ function [x_vec, y_vec, u_vec, v_vec] = move_all_boids_to_new_positions(x_vec, y
 %       v_vec: vector of boid v velocities 
 
 
+% AUTHORS: Andy Metcalf and Josh Minot
+
 
 % preallocate velocity arrays 
 v1 = zeros(2, 1);
@@ -33,7 +35,8 @@ v3 = zeros(2, 1);
 velocity = [u_vec; v_vec];
 position = [x_vec; y_vec];
 
-
+% loop through each bird and calculate update vectors(velocity) based on 
+% rules and then apply udpates to the bird positions 
 for i=1:num_boids
     v1 = rule1(x_vec, y_vec, num_boids, i);
     v2 = rule2(x_vec, y_vec, u_vec, v_vec, num_boids, i, fov_angle); 
@@ -44,6 +47,7 @@ for i=1:num_boids
     
 end
 
+% return vectors in our standardized 1-d format 
 x_vec = position(1,:);
 y_vec = position(2,:); 
 
