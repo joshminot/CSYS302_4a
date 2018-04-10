@@ -71,6 +71,8 @@ if options.test_bool
     line([0 -grid_size], [0 -yval]) 
     %set the xlimits so everthing looks right
     xlim([-grid_size/2 grid_size/2])
+    title({'FOV and Radius Test', ['FOV = ',num2str(fov_angle),' radians']})
+    set(gca,'fontsize' ,16);
     
     
     return 
